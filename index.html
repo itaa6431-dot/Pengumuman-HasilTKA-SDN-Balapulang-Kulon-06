@@ -1,332 +1,108 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
 
-  <title>Pengumuman Hasil TKA</title>
+const siswa = [
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  {
+    nisn:"0133411944",
+    nama:"MUHAMMAD BAIHAQI KAIZAN",
+    matematika:"36.67",
+    ket_mtk:"Memadai",
+    bindo:"46.67",
+    ket_bindo:"Kurang",
+    status:"KURANG"
+  },
 
-  <style>
+  {
+    nisn:"0133670988",
+    nama:"ATHIRAH KALISTA ZALFA",
+    matematika:"46.67",
+    ket_mtk:"Memadai",
+    bindo:"36.67",
+    ket_bindo:"Kurang",
+    status:"KURANG"
+  },
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins',sans-serif;
+  {
+    nisn:"0127905020",
+    nama:"MUHAMMAD DAFFA AQIL AL FARIZI",
+    matematika:"33.33",
+    ket_mtk:"Memadai",
+    bindo:"53.33",
+    ket_bindo:"Memadai",
+    status:"MEMADAI"
+  },
+
+  {
+    nisn:"0146268074",
+    nama:"AKIFA NAILA APRILIANI",
+    matematika:"50.00",
+    ket_mtk:"Memadai",
+    bindo:"93.33",
+    ket_bindo:"Baik",
+    status:"BAIK"
+  },
+
+  {
+    nisn:"0136597887",
+    nama:"FRIDA RAHAYU",
+    matematika:"60.00",
+    ket_mtk:"Baik",
+    bindo:"80.00",
+    ket_bindo:"Baik",
+    status:"BAIK"
+  }
+
+];
+
+function cekHasil(){
+
+  const nisn = document.getElementById("nisn").value;
+
+  const hasil = siswa.find(s => s.nisn === nisn);
+
+  const result = document.getElementById("result");
+  const error = document.getElementById("error");
+
+  if(hasil){
+
+    error.style.display = "none";
+    result.style.display = "block";
+
+    document.getElementById("rNisn").innerText = hasil.nisn;
+
+    document.getElementById("rNama").innerText = hasil.nama;
+
+    document.getElementById("rMtk").innerHTML =
+      hasil.matematika + " (" + hasil.ket_mtk + ")";
+
+    document.getElementById("rBindo").innerHTML =
+      hasil.bindo + " (" + hasil.ket_bindo + ")";
+
+    const status = document.getElementById("rStatus");
+
+    status.innerText = hasil.status;
+
+    status.className = "status";
+
+    if(hasil.status === "BAIK"){
+      status.classList.add("baik");
+    }
+    else if(hasil.status === "MEMADAI"){
+      status.classList.add("memadai");
+    }
+    else{
+      status.classList.add("kurang");
     }
 
-    body{
-      background:#f1f5f9;
-      min-height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      padding:20px;
-    }
+  }
+  else{
 
-    .container{
-      width:100%;
-      max-width:500px;
-    }
+    result.style.display = "none";
+    error.style.display = "block";
 
-    .card{
-      background:white;
-      border-radius:25px;
-      padding:35px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.1);
-    }
+  }
 
-    .logo{
-      text-align:center;
-      margin-bottom:20px;
-    }
+}
 
-    .logo img{
-      width:90px;
-    }
-
-    h1{
-      text-align:center;
-      color:#2563eb;
-      margin-bottom:10px;
-      font-size:28px;
-    }
-
-    .subtitle{
-      text-align:center;
-      color:#64748b;
-      margin-bottom:30px;
-      font-size:14px;
-    }
-
-    .input-group{
-      margin-bottom:20px;
-    }
-
-    label{
-      display:block;
-      margin-bottom:8px;
-      font-weight:600;
-      color:#334155;
-    }
-
-    input{
-      width:100%;
-      padding:14px;
-      border-radius:12px;
-      border:2px solid #dbeafe;
-      font-size:15px;
-      outline:none;
-    }
-
-    input:focus{
-      border-color:#2563eb;
-    }
-
-    button{
-      width:100%;
-      padding:15px;
-      border:none;
-      border-radius:14px;
-      background:#2563eb;
-      color:white;
-      font-size:16px;
-      font-weight:600;
-      cursor:pointer;
-      transition:0.3s;
-    }
-
-    button:hover{
-      background:#1d4ed8;
-    }
-
-    .result{
-      margin-top:30px;
-      display:none;
-      animation:fade 0.4s ease;
-    }
-
-    .result-card{
-      background:#eff6ff;
-      border-radius:18px;
-      padding:25px;
-    }
-
-    .result-card h2{
-      color:#2563eb;
-      margin-bottom:20px;
-      text-align:center;
-    }
-
-    .data{
-      margin-bottom:12px;
-      font-size:15px;
-    }
-
-    .status{
-      margin-top:20px;
-      text-align:center;
-      padding:12px;
-      border-radius:12px;
-      font-weight:700;
-    }
-
-    .baik{
-      background:#dcfce7;
-      color:#15803d;
-    }
-
-    .memadai{
-      background:#fef3c7;
-      color:#92400e;
-    }
-
-    .kurang{
-      background:#fee2e2;
-      color:#dc2626;
-    }
-
-    .error{
-      margin-top:20px;
-      color:red;
-      text-align:center;
-      display:none;
-    }
-
-    @keyframes fade{
-      from{
-        opacity:0;
-        transform:translateY(10px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
-
-    @media(max-width:600px){
-
-      .card{
-        padding:25px;
-      }
-
-      h1{
-        font-size:24px;
-      }
-
-    }
-
-  </style>
-</head>
-<body>
-
-  <div class="container">
-
-    <div class="card">
-
-      <div class="logo">
-        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png">
-      </div>
-
-      <h1>Hasil TKA</h1>
-
-      <div class="subtitle">
-        SDN Balapulang Kulon 06<br>
-        Tahun Pelajaran 2025 / 2026
-      </div>
-
-      <div class="input-group">
-        <label>Masukkan NISN</label>
-        <input type="text" id="nisn" placeholder="Contoh: 0133411944">
-      </div>
-
-      <button onclick="cekHasil()">Lihat Hasil</button>
-
-      <div class="error" id="error">
-        NISN tidak ditemukan
-      </div>
-
-      <div class="result" id="result">
-
-        <div class="result-card">
-
-          <h2>Hasil TKA Siswa</h2>
-
-          <div class="data"><b>NISN:</b> <span id="rNisn"></span></div>
-
-          <div class="data"><b>Nama:</b> <span id="rNama"></span></div>
-
-          <div class="data"><b>Matematika:</b> <span id="rMtk"></span></div>
-
-          <div class="data"><b>Bahasa Indonesia:</b> <span id="rBindo"></span></div>
-
-          <div class="status" id="rStatus"></div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <script>
-
-    const siswa = [
-
-      {
-        nisn:"0133411944",
-        nama:"MUHAMMAD BAIHAQI KAIZAN",
-        matematika:"36.67",
-        bindo:"46.67",
-        status:"KURANG"
-      },
-
-      {
-        nisn:"0133670988",
-        nama:"ATHIRAH KALISTA ZALFA",
-        matematika:"46.67",
-        bindo:"36.67",
-        status:"KURANG"
-      },
-
-      {
-        nisn:"0127905020",
-        nama:"MUHAMMAD DAFFA AQIL AL FARIZI",
-        matematika:"33.33",
-        bindo:"53.33",
-        status:"MEMADAI"
-      },
-
-      {
-        nisn:"0146268074",
-        nama:"AKIFA NAILA APRILIANI",
-        matematika:"50.00",
-        bindo:"93.33",
-        status:"BAIK"
-      },
-
-      {
-        nisn:"0136597887",
-        nama:"FRIDA RAHAYU",
-        matematika:"60.00",
-        bindo:"80.00",
-        status:"BAIK"
-      }
-
-    ];
-
-    function cekHasil(){
-
-      const nisn = document.getElementById("nisn").value;
-
-      const hasil = siswa.find(s => s.nisn === nisn);
-
-      const result = document.getElementById("result");
-      const error = document.getElementById("error");
-
-      if(hasil){
-
-        error.style.display = "none";
-        result.style.display = "block";
-
-        document.getElementById("rNisn").innerText = hasil.nisn;
-        document.getElementById("rNama").innerText = hasil.nama;
-        document.getElementById("rMtk").innerText = hasil.matematika;
-        document.getElementById("rBindo").innerText = hasil.bindo;
-
-        const status = document.getElementById("rStatus");
-
-        status.innerText = hasil.status;
-
-        status.className = "status";
-
-        if(hasil.status === "BAIK"){
-          status.classList.add("baik");
-        }
-        else if(hasil.status === "MEMADAI"){
-          status.classList.add("memadai");
-        }
-        else{
-          status.classList.add("kurang");
-        }
-
-      }
-      else{
-
-        result.style.display = "none";
-        error.style.display = "block";
-
-      }
-
-    }
-
-  </script>
-
-</body>
-</html>
-
+</script>
 
