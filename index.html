@@ -1,353 +1,332 @@
-# Website Pengumuman Hasil TKA — SDN Balapulang Kulon 06
-
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pengumuman Hasil TKA - SDN Balapulang Kulon 06</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pengumuman Hasil TKA</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
     }
 
-    body {
-      background: #f1f5f9;
-      min-height: 100vh;
-      color: #1e293b;
+    body{
+      background:#f1f5f9;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
     }
 
-    .hero {
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-      border-bottom-left-radius: 30px;
-      border-bottom-right-radius: 30px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    .container{
+      width:100%;
+      max-width:500px;
     }
 
-    .hero img {
-      width: 90px;
-      margin-bottom: 15px;
+    .card{
+      background:white;
+      border-radius:25px;
+      padding:35px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.1);
     }
 
-    .hero h1 {
-      font-size: 34px;
-      font-weight: 700;
-      margin-bottom: 10px;
+    .logo{
+      text-align:center;
+      margin-bottom:20px;
     }
 
-    .hero p {
-      font-size: 16px;
-      opacity: 0.95;
+    .logo img{
+      width:90px;
     }
 
-    .container {
-      max-width: 1000px;
-      margin: -40px auto 40px;
-      padding: 20px;
+    h1{
+      text-align:center;
+      color:#2563eb;
+      margin-bottom:10px;
+      font-size:28px;
     }
 
-    .card {
-      background: white;
-      border-radius: 24px;
-      padding: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    .subtitle{
+      text-align:center;
+      color:#64748b;
+      margin-bottom:30px;
+      font-size:14px;
     }
 
-    .search-box {
-      margin-bottom: 25px;
-      display: flex;
-      justify-content: center;
+    .input-group{
+      margin-bottom:20px;
     }
 
-    .search-box input {
-      width: 100%;
-      max-width: 420px;
-      padding: 14px 18px;
-      border: 2px solid #dbeafe;
-      border-radius: 14px;
-      font-size: 15px;
-      outline: none;
-      transition: 0.3s;
+    label{
+      display:block;
+      margin-bottom:8px;
+      font-weight:600;
+      color:#334155;
     }
 
-    .search-box input:focus {
-      border-color: #2563eb;
-      box-shadow: 0 0 10px rgba(37,99,235,0.2);
+    input{
+      width:100%;
+      padding:14px;
+      border-radius:12px;
+      border:2px solid #dbeafe;
+      font-size:15px;
+      outline:none;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      overflow: hidden;
-      border-radius: 18px;
+    input:focus{
+      border-color:#2563eb;
     }
 
-    thead {
-      background: #2563eb;
-      color: white;
+    button{
+      width:100%;
+      padding:15px;
+      border:none;
+      border-radius:14px;
+      background:#2563eb;
+      color:white;
+      font-size:16px;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
     }
 
-    th {
-      padding: 16px;
-      font-size: 15px;
-      font-weight: 600;
+    button:hover{
+      background:#1d4ed8;
     }
 
-    td {
-      padding: 14px;
-      text-align: center;
-      border-bottom: 1px solid #e2e8f0;
-      font-size: 14px;
+    .result{
+      margin-top:30px;
+      display:none;
+      animation:fade 0.4s ease;
     }
 
-    tbody tr:hover {
-      background: #eff6ff;
-      transition: 0.2s;
+    .result-card{
+      background:#eff6ff;
+      border-radius:18px;
+      padding:25px;
     }
 
-    .lulus {
-      background: #dcfce7;
-      color: #15803d;
-      padding: 6px 14px;
-      border-radius: 30px;
-      font-size: 13px;
-      font-weight: 600;
-      display: inline-block;
+    .result-card h2{
+      color:#2563eb;
+      margin-bottom:20px;
+      text-align:center;
     }
 
-    .tidak {
-      background: #fee2e2;
-      color: #dc2626;
-      padding: 6px 14px;
-      border-radius: 30px;
-      font-size: 13px;
-      font-weight: 600;
-      display: inline-block;
+    .data{
+      margin-bottom:12px;
+      font-size:15px;
     }
 
-    footer {
-      text-align: center;
-      padding: 25px;
-      color: #64748b;
-      font-size: 14px;
+    .status{
+      margin-top:20px;
+      text-align:center;
+      padding:12px;
+      border-radius:12px;
+      font-weight:700;
     }
 
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 26px;
+    .baik{
+      background:#dcfce7;
+      color:#15803d;
+    }
+
+    .memadai{
+      background:#fef3c7;
+      color:#92400e;
+    }
+
+    .kurang{
+      background:#fee2e2;
+      color:#dc2626;
+    }
+
+    .error{
+      margin-top:20px;
+      color:red;
+      text-align:center;
+      display:none;
+    }
+
+    @keyframes fade{
+      from{
+        opacity:0;
+        transform:translateY(10px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media(max-width:600px){
+
+      .card{
+        padding:25px;
       }
 
-      .card {
-        padding: 20px;
+      h1{
+        font-size:24px;
       }
 
-      table {
-        font-size: 12px;
-      }
-
-      th, td {
-        padding: 10px 6px;
-      }
     }
+
   </style>
 </head>
 <body>
 
-  <section class="hero">
-    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" alt="Logo Sekolah">
-    <h1>Pengumuman Hasil TKA</h1>
-    <p>SDN Balapulang Kulon 06</p>
-    <p>Tahun Pelajaran 2025 / 2026</p>
-  </section>
-
   <div class="container">
+
     <div class="card">
 
-      <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Cari nama siswa atau NISN...">
+      <div class="logo">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png">
       </div>
 
-      <table id="resultTable">
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>NISN</th>
-            <th>Nama Siswa</th>
-            <th>Nilai</th>
-            <th>Status</th>
-          </tr>
-        </thead>
+      <h1>Hasil TKA</h1>
 
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>0133411944</td>
-            <td>MUHAMMAD BAIHAQI KAIZAN</td>
-            <td>36.67</td>
-            <td>46.67</td>
-            <td><span class="tidak">KURANG</span></td>
-          </tr>
+      <div class="subtitle">
+        SDN Balapulang Kulon 06<br>
+        Tahun Pelajaran 2025 / 2026
+      </div>
 
-          <tr>
-            <td>2</td>
-            <td>0133670988</td>
-            <td>ATHIRAH KALISTA ZALFA</td>
-            <td>46.67</td>
-            <td>36.67</td>
-            <td><span class="tidak">KURANG</span></td>
-          </tr>
+      <div class="input-group">
+        <label>Masukkan NISN</label>
+        <input type="text" id="nisn" placeholder="Contoh: 0133411944">
+      </div>
 
-          <tr>
-            <td>3</td>
-            <td>0127905020</td>
-            <td>MUHAMMAD DAFFA AQIL AL FARIZI</td>
-            <td>33.33</td>
-            <td>53.33</td>
-            <td><span class="lulus">MEMADAI</span></td>
-          </tr>
+      <button onclick="cekHasil()">Lihat Hasil</button>
 
-          <tr>
-            <td>4</td>
-            <td>0146268074</td>
-            <td>AKIFA NAILA APRILIANI</td>
-            <td>50.00</td>
-            <td>93.33</td>
-            <td><span class="lulus">BAIK</span></td>
-          </tr>
+      <div class="error" id="error">
+        NISN tidak ditemukan
+      </div>
 
-          <tr>
-            <td>5</td>
-            <td>0136597887</td>
-            <td>FRIDA RAHAYU</td>
-            <td>60.00</td>
-            <td>80.00</td>
-            <td><span class="lulus">BAIK</span></td>
-          </tr>
+      <div class="result" id="result">
 
-          <tr>
-            <td>6</td>
-            <td>0146436192</td>
-            <td>ADELIA FAIQ SA'DIYAH</td>
-            <td>43.33</td>
-            <td>83.33</td>
-            <td><span class="lulus">BAIK</span></td>
-          </tr>
+        <div class="result-card">
 
-          <tr>
-            <td>7</td>
-            <td>0139180200</td>
-            <td>AZZIRAH AULIA SAFITRI</td>
-            <td>53.33</td>
-            <td>66.67</td>
-            <td><span class="lulus">MEMADAI</span></td>
-          </tr>
+          <h2>Hasil TKA Siswa</h2>
 
-          <tr>
-            <td>8</td>
-            <td>0134969755</td>
-            <td>MUHAMMAD FATIH IZZUDIN NUGROHO</td>
-            <td>36.67</td>
-            <td>46.67</td>
-            <td><span class="tidak">KURANG</span></td>
-          </tr>
+          <div class="data"><b>NISN:</b> <span id="rNisn"></span></div>
 
-          <tr>
-            <td>9</td>
-            <td>0145624670</td>
-            <td>AHMAD FAISAL ARIF AZMI</td>
-            <td>40.00</td>
-            <td>53.33</td>
-            <td><span class="lulus">MEMADAI</span></td>
-          </tr>
+          <div class="data"><b>Nama:</b> <span id="rNama"></span></div>
 
-          <tr>
-            <td>10</td>
-            <td>3146290227</td>
-            <td>MONICA MAULIDA</td>
-            <td>53.33</td>
-            <td>76.67</td>
-            <td><span class="lulus">BAIK</span></td>
-          </tr>
+          <div class="data"><b>Matematika:</b> <span id="rMtk"></span></div>
 
-          <tr>
-            <td>11</td>
-            <td>0134946208</td>
-            <td>NUR CHOTIMATUL ALIYAH</td>
-            <td>50.00</td>
-            <td>86.67</td>
-            <td><span class="lulus">BAIK</span></td>
-          </tr>
+          <div class="data"><b>Bahasa Indonesia:</b> <span id="rBindo"></span></div>
 
-          <tr>
-            <td>12</td>
-            <td>3137634634</td>
-            <td>SALWA DILA AYATUL HUSNA</td>
-            <td>30.00</td>
-            <td>76.67</td>
-            <td><span class="lulus">BAIK</span></td>
-          </tr>
+          <div class="status" id="rStatus"></div>
 
-          <tr>
-            <td>13</td>
-            <td>0134181356</td>
-            <td>ASSYFA PUTRI AYUNI</td>
-            <td>26.67</td>
-            <td>43.33</td>
-            <td><span class="tidak">KURANG</span></td>
-          </tr>
+        </div>
 
-          <tr>
-            <td>14</td>
-            <td>0135644161</td>
-            <td>SABRINA AZZAHRA RAMADINA</td>
-            <td>40.00</td>
-            <td>70.00</td>
-            <td><span class="lulus">MEMADAI</span></td>
-          </tr>
-        </tbody>
-      </table>
+      </div>
 
     </div>
+
   </div>
 
-  <footer>
-    © 2026 SDN Balapulang Kulon 06 — Website Pengumuman Hasil TKA
-  </footer>
-
   <script>
-    const searchInput = document.getElementById('searchInput');
-    const rows = document.querySelectorAll('#resultTable tbody tr');
 
-    searchInput.addEventListener('keyup', function () {
-      const keyword = this.value.toLowerCase();
+    const siswa = [
 
-      rows.forEach(row => {
-        const nisn = row.cells[1].textContent.toLowerCase();
-        const nama = row.cells[2].textContent.toLowerCase();
+      {
+        nisn:"0133411944",
+        nama:"MUHAMMAD BAIHAQI KAIZAN",
+        matematika:"36.67",
+        bindo:"46.67",
+        status:"KURANG"
+      },
 
-        if (nisn.includes(keyword) || nama.includes(keyword)) {
-          row.style.display = '';
-        } else {
-          row.style.display = 'none';
+      {
+        nisn:"0133670988",
+        nama:"ATHIRAH KALISTA ZALFA",
+        matematika:"46.67",
+        bindo:"36.67",
+        status:"KURANG"
+      },
+
+      {
+        nisn:"0127905020",
+        nama:"MUHAMMAD DAFFA AQIL AL FARIZI",
+        matematika:"33.33",
+        bindo:"53.33",
+        status:"MEMADAI"
+      },
+
+      {
+        nisn:"0146268074",
+        nama:"AKIFA NAILA APRILIANI",
+        matematika:"50.00",
+        bindo:"93.33",
+        status:"BAIK"
+      },
+
+      {
+        nisn:"0136597887",
+        nama:"FRIDA RAHAYU",
+        matematika:"60.00",
+        bindo:"80.00",
+        status:"BAIK"
+      }
+
+    ];
+
+    function cekHasil(){
+
+      const nisn = document.getElementById("nisn").value;
+
+      const hasil = siswa.find(s => s.nisn === nisn);
+
+      const result = document.getElementById("result");
+      const error = document.getElementById("error");
+
+      if(hasil){
+
+        error.style.display = "none";
+        result.style.display = "block";
+
+        document.getElementById("rNisn").innerText = hasil.nisn;
+        document.getElementById("rNama").innerText = hasil.nama;
+        document.getElementById("rMtk").innerText = hasil.matematika;
+        document.getElementById("rBindo").innerText = hasil.bindo;
+
+        const status = document.getElementById("rStatus");
+
+        status.innerText = hasil.status;
+
+        status.className = "status";
+
+        if(hasil.status === "BAIK"){
+          status.classList.add("baik");
         }
-      });
-    });
+        else if(hasil.status === "MEMADAI"){
+          status.classList.add("memadai");
+        }
+        else{
+          status.classList.add("kurang");
+        }
+
+      }
+      else{
+
+        result.style.display = "none";
+        error.style.display = "block";
+
+      }
+
+    }
+
   </script>
 
 </body>
 </html>
-```
 
 
