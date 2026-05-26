@@ -1,0 +1,353 @@
+# Website Pengumuman Hasil TKA — SDN Balapulang Kulon 06
+
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pengumuman Hasil TKA - SDN Balapulang Kulon 06</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f1f5f9;
+      min-height: 100vh;
+      color: #1e293b;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    }
+
+    .hero img {
+      width: 90px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: 34px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 16px;
+      opacity: 0.95;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: -40px auto 40px;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .search-box {
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .search-box input {
+      width: 100%;
+      max-width: 420px;
+      padding: 14px 18px;
+      border: 2px solid #dbeafe;
+      border-radius: 14px;
+      font-size: 15px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .search-box input:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 10px rgba(37,99,235,0.2);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 18px;
+    }
+
+    thead {
+      background: #2563eb;
+      color: white;
+    }
+
+    th {
+      padding: 16px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    td {
+      padding: 14px;
+      text-align: center;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 14px;
+    }
+
+    tbody tr:hover {
+      background: #eff6ff;
+      transition: 0.2s;
+    }
+
+    .lulus {
+      background: #dcfce7;
+      color: #15803d;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .tidak {
+      background: #fee2e2;
+      color: #dc2626;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 26px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      table {
+        font-size: 12px;
+      }
+
+      th, td {
+        padding: 10px 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" alt="Logo Sekolah">
+    <h1>Pengumuman Hasil TKA</h1>
+    <p>SDN Balapulang Kulon 06</p>
+    <p>Tahun Pelajaran 2025 / 2026</p>
+  </section>
+
+  <div class="container">
+    <div class="card">
+
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Cari nama siswa atau NISN...">
+      </div>
+
+      <table id="resultTable">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>NISN</th>
+            <th>Nama Siswa</th>
+            <th>Nilai</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>0133411944</td>
+            <td>MUHAMMAD BAIHAQI KAIZAN</td>
+            <td>36.67</td>
+            <td>46.67</td>
+            <td><span class="tidak">KURANG</span></td>
+          </tr>
+
+          <tr>
+            <td>2</td>
+            <td>0133670988</td>
+            <td>ATHIRAH KALISTA ZALFA</td>
+            <td>46.67</td>
+            <td>36.67</td>
+            <td><span class="tidak">KURANG</span></td>
+          </tr>
+
+          <tr>
+            <td>3</td>
+            <td>0127905020</td>
+            <td>MUHAMMAD DAFFA AQIL AL FARIZI</td>
+            <td>33.33</td>
+            <td>53.33</td>
+            <td><span class="lulus">MEMADAI</span></td>
+          </tr>
+
+          <tr>
+            <td>4</td>
+            <td>0146268074</td>
+            <td>AKIFA NAILA APRILIANI</td>
+            <td>50.00</td>
+            <td>93.33</td>
+            <td><span class="lulus">BAIK</span></td>
+          </tr>
+
+          <tr>
+            <td>5</td>
+            <td>0136597887</td>
+            <td>FRIDA RAHAYU</td>
+            <td>60.00</td>
+            <td>80.00</td>
+            <td><span class="lulus">BAIK</span></td>
+          </tr>
+
+          <tr>
+            <td>6</td>
+            <td>0146436192</td>
+            <td>ADELIA FAIQ SA'DIYAH</td>
+            <td>43.33</td>
+            <td>83.33</td>
+            <td><span class="lulus">BAIK</span></td>
+          </tr>
+
+          <tr>
+            <td>7</td>
+            <td>0139180200</td>
+            <td>AZZIRAH AULIA SAFITRI</td>
+            <td>53.33</td>
+            <td>66.67</td>
+            <td><span class="lulus">MEMADAI</span></td>
+          </tr>
+
+          <tr>
+            <td>8</td>
+            <td>0134969755</td>
+            <td>MUHAMMAD FATIH IZZUDIN NUGROHO</td>
+            <td>36.67</td>
+            <td>46.67</td>
+            <td><span class="tidak">KURANG</span></td>
+          </tr>
+
+          <tr>
+            <td>9</td>
+            <td>0145624670</td>
+            <td>AHMAD FAISAL ARIF AZMI</td>
+            <td>40.00</td>
+            <td>53.33</td>
+            <td><span class="lulus">MEMADAI</span></td>
+          </tr>
+
+          <tr>
+            <td>10</td>
+            <td>3146290227</td>
+            <td>MONICA MAULIDA</td>
+            <td>53.33</td>
+            <td>76.67</td>
+            <td><span class="lulus">BAIK</span></td>
+          </tr>
+
+          <tr>
+            <td>11</td>
+            <td>0134946208</td>
+            <td>NUR CHOTIMATUL ALIYAH</td>
+            <td>50.00</td>
+            <td>86.67</td>
+            <td><span class="lulus">BAIK</span></td>
+          </tr>
+
+          <tr>
+            <td>12</td>
+            <td>3137634634</td>
+            <td>SALWA DILA AYATUL HUSNA</td>
+            <td>30.00</td>
+            <td>76.67</td>
+            <td><span class="lulus">BAIK</span></td>
+          </tr>
+
+          <tr>
+            <td>13</td>
+            <td>0134181356</td>
+            <td>ASSYFA PUTRI AYUNI</td>
+            <td>26.67</td>
+            <td>43.33</td>
+            <td><span class="tidak">KURANG</span></td>
+          </tr>
+
+          <tr>
+            <td>14</td>
+            <td>0135644161</td>
+            <td>SABRINA AZZAHRA RAMADINA</td>
+            <td>40.00</td>
+            <td>70.00</td>
+            <td><span class="lulus">MEMADAI</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+  <footer>
+    © 2026 SDN Balapulang Kulon 06 — Website Pengumuman Hasil TKA
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const rows = document.querySelectorAll('#resultTable tbody tr');
+
+    searchInput.addEventListener('keyup', function () {
+      const keyword = this.value.toLowerCase();
+
+      rows.forEach(row => {
+        const nisn = row.cells[1].textContent.toLowerCase();
+        const nama = row.cells[2].textContent.toLowerCase();
+
+        if (nisn.includes(keyword) || nama.includes(keyword)) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
+```
+
+
